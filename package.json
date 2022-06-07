@@ -1,20 +1,21 @@
 {
-  "name": "node-nodejs-basics",
+  "name": "file-manager",
   "version": "1.0.0",
-  "description": "This repository is the part of nodejs-assignments https://github.com/AlreadyBored/nodejs-assignments",
+  "description": "",
+  "main": "index.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AlreadyBored/node-nodejs-basics.git"
+    "url": "git+https://github.com/l1irik-rbk/File-manager.git"
   },
-  "keywords": ["nodejs", "assignments", "alreadybored"],
-  "author": "alreadybored",
+  "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/AlreadyBored/node-nodejs-basics/issues"
+    "url": "https://github.com/l1irik-rbk/File-manager/issues"
   },
-  "homepage": "https://github.com/AlreadyBored/node-nodejs-basics#readme"
+  "homepage": "https://github.com/l1irik-rbk/File-manager#readme"
 }
