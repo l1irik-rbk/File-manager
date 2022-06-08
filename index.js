@@ -1,19 +1,11 @@
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
-import * as path from 'path';
-import * as fs from 'fs';
 import * as readline from 'readline';
-import * as os from 'os';
-import getHomeDir from './utils/getHomeDir.js';
+import getDir from './utils/getDir.js';
 import { getWelcomMessage, getFarewellMessage } from './utils/getMessages.js';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+import readCommand from './utils/readCommand.js';
 
 const startManager = () => {
-  console.log(__dirname);
   getWelcomMessage();
-  getHomeDir();
+  getDir();
 
   const rl = readline.createInterface({
     input: process.stdin,
@@ -24,8 +16,7 @@ const startManager = () => {
     if (input === '.exit') {
       process.exit();
     }
-    console.log(`Input^ ${input}`);
-    getHomeDir();
+    readCommand(input);
   });
 
   process.on('exit', () => {
