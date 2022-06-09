@@ -13,7 +13,7 @@ const cp = async (pathToCopyFile, pathToNewDirectory) => {
 
     const accessResponseFile = await exists(pathToFile);
     const accessResponseDirectory = await exists(pathToDirectory);
-    if (!accessResponseFile && !accessResponseDirectory) throw new Error(OPERATION_FAILED);
+    if (!accessResponseFile || !accessResponseDirectory) throw new Error(OPERATION_FAILED);
 
     const newPath = path.join(pathToDirectory, fileBase);
     await copyFile(pathToFile, newPath);

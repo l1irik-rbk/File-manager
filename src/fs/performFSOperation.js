@@ -3,6 +3,7 @@ import getDir from '../../utils/getDir.js';
 import add from './add.js';
 import cat from './cat.js';
 import cp from './cp.js';
+import mv from './mv.js';
 import remove from './rm.js';
 import rn from './rn.js';
 
@@ -48,7 +49,7 @@ const performComplexOperations = (operationFirstPart, operationSecondPart, opera
       cp(operationSecondPart, operationThirdPart);
       break;
     case 'mv':
-      console.log('mv');
+      mv(operationSecondPart, operationThirdPart);
       break;
     default:
       console.log(INVAILD_INPUT);
