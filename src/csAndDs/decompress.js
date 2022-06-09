@@ -11,19 +11,19 @@ import getDir from '../../utils/getDir.js';
 
 const pipe = promisify(pipeline);
 
-const compress = async (pathToCompressFile, pathToNewDirectory) => {
+const decompress = async (pathToCompressFile, pathToNewDirectory) => {
   try {
     const pathToFile = path.join(currentDir, pathToCompressFile);
-    const fileBase = path.parse(pathToFile).base;
+    const fileBase = path.parse(pathToFile).base.slice(0, -3);
     const pathToDirectory = path.join(currentDir, pathToNewDirectory);
 
     const accessResponseFile = await exists(pathToFile);
     const accessResponseDirectory = await exists(pathToDirectory);
     if (!accessResponseFile || !accessResponseDirectory) throw new Error(OPERATION_FAILED);
 
-    const newPath = path.join(pathToDirectory, `${fileBase}.br`);
+    const newPath = path.join(pathToDirectory, fileBase);
 
-    const brotli = zlib.createBrotliCompress();
+    const brotli = zlib.createBrotliDecompress();
     const source = fs.createReadStream(pathToFile);
     const destination = fs.createWriteStream(newPath);
 
@@ -36,4 +36,4 @@ const compress = async (pathToCompressFile, pathToNewDirectory) => {
   }
 };
 
-export default compress;
+export default decompress;

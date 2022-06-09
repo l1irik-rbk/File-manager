@@ -1,6 +1,7 @@
 import { INVAILD_INPUT } from '../../utils/errors.js';
 import getDir from '../../utils/getDir.js';
 import compress from './compress.js';
+import decompress from './decompress.js';
 
 const performCsAndDsOperation = (operationFirstPart, operationSecondPart, operationThirdPart) => {
   if (!operationThirdPart) {
@@ -14,7 +15,7 @@ const performCsAndDsOperation = (operationFirstPart, operationSecondPart, operat
       compress(operationSecondPart, operationThirdPart);
       break;
     case 'decompress':
-      console.log('decompress');
+      decompress(operationSecondPart, operationThirdPart);
       break;
     default:
       console.log(INVAILD_INPUT);
