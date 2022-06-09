@@ -2,6 +2,7 @@ import { INVAILD_INPUT } from '../../utils/errors.js';
 import getDir from '../../utils/getDir.js';
 import add from './add.js';
 import cat from './cat.js';
+import remove from './rm.js';
 
 const performFSOperation = (operationFirstPart, operationSecondPart, operationThirdPart) => {
   if (
@@ -50,7 +51,7 @@ const performSimpleOperations = (operationFirstPart, operationSecondPart) => {
       add(operationSecondPart);
       break;
     case 'rm':
-      console.log('rm');
+      remove(operationSecondPart);
       break;
     default:
       console.log(INVAILD_INPUT);
