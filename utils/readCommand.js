@@ -1,6 +1,7 @@
 import performNwdOperation from '../src/nwd/performNwdOperation.js';
 import performOSOperation from '../src/os/performOSOperation.js';
 import { INVAILD_INPUT } from './errors.js';
+import getDir from './getDir.js';
 
 const readCommand = (inputValue) => {
   const parsedValue = inputValue.trim().split(' ');
@@ -18,6 +19,7 @@ const readCommand = (inputValue) => {
       break;
     default:
       console.log(INVAILD_INPUT);
+      getDir();
       break;
   }
 };
