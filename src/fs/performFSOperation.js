@@ -1,5 +1,6 @@
 import { INVAILD_INPUT } from '../../utils/errors.js';
 import getDir from '../../utils/getDir.js';
+import add from './add.js';
 import cat from './cat.js';
 
 const performFSOperation = (operationFirstPart, operationSecondPart, operationThirdPart) => {
@@ -46,7 +47,7 @@ const performSimpleOperations = (operationFirstPart, operationSecondPart) => {
       cat(operationSecondPart);
       break;
     case 'add':
-      console.log('add');
+      add(operationSecondPart);
       break;
     case 'rm':
       console.log('rm');
