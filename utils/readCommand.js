@@ -1,3 +1,4 @@
+import performCsAndDsOperation from '../src/csAndDs/performCsAndDsOperation.js';
 import performFSOperation from '../src/fs/performFSOperation.js';
 import performHashOperation from '../src/hash/performHashOperation.js';
 import performNwdOperation from '../src/nwd/performNwdOperation.js';
@@ -30,6 +31,10 @@ const readCommand = (inputValue) => {
       break;
     case 'hash':
       performHashOperation(operationSecondPart);
+      break;
+    case 'compress':
+    case 'decompress':
+      performCsAndDsOperation(operationFirstPart, operationSecondPart, operationThirdPart);
       break;
     default:
       console.log(INVAILD_INPUT);
