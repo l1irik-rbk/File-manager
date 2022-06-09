@@ -3,6 +3,7 @@ import getDir from '../../utils/getDir.js';
 import add from './add.js';
 import cat from './cat.js';
 import remove from './rm.js';
+import rn from './rn.js';
 
 const performFSOperation = (operationFirstPart, operationSecondPart, operationThirdPart) => {
   if (
@@ -21,7 +22,26 @@ const performFSOperation = (operationFirstPart, operationSecondPart, operationTh
       performSimpleOperations(operationFirstPart, operationSecondPart);
       break;
     case 'rn':
-      console.log('rn');
+    case 'cp':
+    case 'mv':
+      performComplexOperations(operationFirstPart, operationSecondPart, operationThirdPart);
+      break;
+    default:
+      console.log(INVAILD_INPUT);
+      break;
+  }
+};
+
+const performComplexOperations = (operationFirstPart, operationSecondPart, operationThirdPart) => {
+  if (!operationThirdPart) {
+    console.log(INVAILD_INPUT);
+    getDir();
+    return;
+  }
+
+  switch (operationFirstPart) {
+    case 'rn':
+      rn(operationSecondPart, operationThirdPart);
       break;
     case 'cp':
       console.log('cp');
@@ -29,7 +49,6 @@ const performFSOperation = (operationFirstPart, operationSecondPart, operationTh
     case 'mv':
       console.log('mv');
       break;
-
     default:
       console.log(INVAILD_INPUT);
       break;
