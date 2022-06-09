@@ -2,6 +2,7 @@ import { INVAILD_INPUT } from '../../utils/errors.js';
 import getDir from '../../utils/getDir.js';
 import add from './add.js';
 import cat from './cat.js';
+import cp from './cp.js';
 import remove from './rm.js';
 import rn from './rn.js';
 
@@ -44,7 +45,7 @@ const performComplexOperations = (operationFirstPart, operationSecondPart, opera
       rn(operationSecondPart, operationThirdPart);
       break;
     case 'cp':
-      console.log('cp');
+      cp(operationSecondPart, operationThirdPart);
       break;
     case 'mv':
       console.log('mv');
