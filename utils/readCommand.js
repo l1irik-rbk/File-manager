@@ -1,4 +1,5 @@
 import performFSOperation from '../src/fs/performFSOperation.js';
+import performHashOperation from '../src/hash/performHashOperation.js';
 import performNwdOperation from '../src/nwd/performNwdOperation.js';
 import performOSOperation from '../src/os/performOSOperation.js';
 import { INVAILD_INPUT } from './errors.js';
@@ -26,6 +27,9 @@ const readCommand = (inputValue) => {
       break;
     case 'os':
       performOSOperation(operationSecondPart);
+      break;
+    case 'hash':
+      performHashOperation(operationSecondPart);
       break;
     default:
       console.log(INVAILD_INPUT);
