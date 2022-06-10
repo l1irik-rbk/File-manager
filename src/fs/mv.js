@@ -1,5 +1,6 @@
 import * as path from 'path';
-import { copyFile, rm } from 'node:fs/promises';
+import * as fs from 'fs';
+import { rm } from 'node:fs/promises';
 import { OPERATION_FAILED } from '../../utils/errors.js';
 import exists from '../../utils/exists.js';
 import { currentDir } from '../../src/nwd/currentDir.js';
@@ -17,7 +18,13 @@ const mv = async (pathToCopyFile, pathToNewDirectory) => {
 
     const newPath = path.join(pathToDirectory, fileBase);
 
-    await copyFile(pathToFile, newPath);
+    const stream = fs.createWriteStream(newPath, { encoding: 'utf-8' });
+    const file = fs.createReadStream(pathToFile, { encoding: 'utf-8' });
+
+    file.on('data', (chunk) => {
+      stream.write(chunk);
+    });
+
     await rm(pathToFile);
   } catch (error) {
     console.error(error.message);

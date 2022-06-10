@@ -1,5 +1,5 @@
 import * as path from 'path';
-import { copyFile } from 'node:fs/promises';
+import * as fs from 'fs';
 import { OPERATION_FAILED } from '../../utils/errors.js';
 import exists from '../../utils/exists.js';
 import { currentDir } from '../../src/nwd/currentDir.js';
@@ -16,7 +16,13 @@ const cp = async (pathToCopyFile, pathToNewDirectory) => {
     if (!accessResponseFile || !accessResponseDirectory) throw new Error(OPERATION_FAILED);
 
     const newPath = path.join(pathToDirectory, fileBase);
-    await copyFile(pathToFile, newPath);
+
+    const stream = fs.createWriteStream(newPath, { encoding: 'utf-8' });
+    const file = fs.createReadStream(pathToFile, { encoding: 'utf-8' });
+
+    file.on('data', (chunk) => {
+      stream.write(chunk);
+    });
   } catch (error) {
     console.error(error.message);
   } finally {
