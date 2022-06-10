@@ -1,5 +1,5 @@
 import { INVAILD_INPUT } from '../../utils/errors.js';
-import getDir from '../../utils/getDir.js';
+import getInvalidInputMessage from '../../utils/getInvalidInputMessage.js';
 import add from './add.js';
 import cat from './cat.js';
 import cp from './cp.js';
@@ -12,8 +12,7 @@ const performFSOperation = (operationFirstPart, operationSecondPart, operationTh
     (operationFirstPart === 'cat' || operationFirstPart === 'add' || operationFirstPart === 'rm') &&
     operationThirdPart
   ) {
-    console.log(INVAILD_INPUT);
-    getDir();
+    getInvalidInputMessage();
     return;
   }
 
@@ -36,8 +35,7 @@ const performFSOperation = (operationFirstPart, operationSecondPart, operationTh
 
 const performComplexOperations = (operationFirstPart, operationSecondPart, operationThirdPart) => {
   if (!operationThirdPart) {
-    console.log(INVAILD_INPUT);
-    getDir();
+    getInvalidInputMessage();
     return;
   }
 
@@ -59,8 +57,7 @@ const performComplexOperations = (operationFirstPart, operationSecondPart, opera
 
 const performSimpleOperations = (operationFirstPart, operationSecondPart) => {
   if (!operationSecondPart) {
-    console.log(INVAILD_INPUT);
-    getDir();
+    getInvalidInputMessage();
     return;
   }
 

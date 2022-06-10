@@ -1,12 +1,11 @@
 import { INVAILD_INPUT } from '../../utils/errors.js';
-import getDir from '../../utils/getDir.js';
+import getInvalidInputMessage from '../../utils/getInvalidInputMessage.js';
 import { changeDir, up } from './currentDir.js';
 import list from './ls.js';
 
-const performNwdOperation = (operationFirstPart, operationSecondPart) => {
-  if (operationFirstPart !== 'cd' && operationSecondPart) {
-    console.log(INVAILD_INPUT);
-    getDir();
+const performNwdOperation = (operationFirstPart, operationSecondPart, operationThirdPart) => {
+  if ((operationFirstPart !== 'cd' && operationSecondPart) || operationThirdPart) {
+    getInvalidInputMessage();
     return;
   }
 

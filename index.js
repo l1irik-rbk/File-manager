@@ -13,9 +13,6 @@ const startManager = () => {
   });
 
   rl.on('line', (input) => {
-    if (input === '.exit') {
-      process.exit();
-    }
     readCommand(input);
   });
 

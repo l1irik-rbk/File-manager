@@ -1,15 +1,15 @@
 import * as path from 'path';
 import * as fs from 'fs';
 import * as crypto from 'crypto';
-import { INVAILD_INPUT, OPERATION_FAILED } from '../../utils/errors.js';
+import { OPERATION_FAILED } from '../../utils/errors.js';
 import getDir from '../../utils/getDir.js';
 import { currentDir } from '../nwd/currentDir.js';
 import exists from '../../utils/exists.js';
+import getInvalidInputMessage from '../../utils/getInvalidInputMessage.js';
 
-const performHashOperation = async (pathToHashFile) => {
-  if (!pathToHashFile) {
-    console.log(INVAILD_INPUT);
-    getDir();
+const performHashOperation = async (pathToHashFile, operationThirdPart) => {
+  if (!pathToHashFile || operationThirdPart) {
+    getInvalidInputMessage();
     return;
   }
 

@@ -1,8 +1,14 @@
 import { INVAILD_INPUT } from '../../utils/errors.js';
 import * as os from 'os';
 import getDir from '../../utils/getDir.js';
+import getInvalidInputMessage from '../../utils/getInvalidInputMessage.js';
 
-const performOSOperation = (operationSecondPart) => {
+const performOSOperation = (operationSecondPart, operationThirdPart) => {
+  if (operationThirdPart) {
+    getInvalidInputMessage();
+    return;
+  }
+
   switch (operationSecondPart) {
     case '--EOL':
       const EOL = os.EOL;

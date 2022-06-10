@@ -1,12 +1,11 @@
 import { INVAILD_INPUT } from '../../utils/errors.js';
-import getDir from '../../utils/getDir.js';
+import getInvalidInputMessage from '../../utils/getInvalidInputMessage.js';
 import compress from './compress.js';
 import decompress from './decompress.js';
 
 const performCsAndDsOperation = (operationFirstPart, operationSecondPart, operationThirdPart) => {
   if (!operationThirdPart) {
-    console.log(INVAILD_INPUT);
-    getDir();
+    getInvalidInputMessage();
     return;
   }
 
